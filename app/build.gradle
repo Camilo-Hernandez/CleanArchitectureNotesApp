@@ -1,8 +1,47 @@
 plugins {
     id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
+    id 'org.jetbrains.kotlin.android' // Es lo mismo que usar la dependencia 'kotlin-android'
+
+    /**
+    El plugin id ‘kotlin-kapt’ es un complemento del compilador de Kotlin que permite usar
+     procesadores de anotaciones en tus proyectos de Kotlin.
+     Los procesadores de anotaciones son herramientas que generan código o recursos a partir
+     de las anotaciones en el código fuente2. Algunos ejemplos de bibliotecas que usan
+     procesadores de anotaciones son Dagger, Data Binding, Room y Lombok1.
+     Para usar el plugin ‘kotlin-kapt’, debes aplicarlo en tu archivo build.gradle y agregar las
+     dependencias correspondientes usando la configuración kapt1. Por ejemplo:
+
+    '''gradle
+    plugins {
+        id 'org.jetbrains.kotlin.kapt' version '1.8.20'
+    }
+
+    dependencies {
+        kapt 'com.google.dagger:dagger-compiler:2.40.5'
+    }
+     '''
+     */
     id 'kotlin-kapt'
-    id 'dagger.hilt.android.plugin'
+
+    /**
+     * El plugin id ‘dagger.hilt.android.plugin’ es un complemento de Gradle que te permite usar
+     * Hilt en tu aplicación de Android1. Hilt es una biblioteca de inyección de dependencias que
+     * se basa en Dagger y simplifica la infraestructura necesaria para usar DI en tu proyecto.
+     * Para usar el plugin ‘dagger.hilt.android.plugin’, debes aplicarlo en tu archivo build.gradle
+     * del módulo de la app y agregar las dependencias correspondientes usando la configuración kapt.
+     * Por ejemplo:
+
+     plugins {
+     id 'com.google.dagger.hilt.android' version '2.44'
+     }
+
+     dependencies {
+     implementation "com.google.dagger:hilt-android:2.44"
+     kapt "com.google.dagger:hilt-compiler:2.44"
+     }
+     */
+    id 'dagger.hilt.android.plugin' // Debe usarse con classpath "com.google.dagger:hilt-android-gradle-plugin:2.42" del build.gradle del project
+
 }
 
 android {
@@ -29,16 +68,19 @@ android {
         }
     }
     compileOptions {
+        // La versión 1.8 y superiores a la 11 generan problemas
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
     }
     kotlinOptions {
+        // La versión de la JVM Objetivo debe ser la misma que la de Java usada en compile options
         jvmTarget = '11'
     }
     buildFeatures {
         compose true
     }
     composeOptions {
+        // Se utiliza la misma versión de compose para facilidad.
         kotlinCompilerExtensionVersion compose_version
         kotlinCompilerVersion '1.5.21'
     }
@@ -59,7 +101,7 @@ dependencies {
     // Dependencias para usar Jetpack Compose, un conjunto de herramientas para crear UI nativas de Android
     implementation "androidx.compose.ui:ui:$compose_version"
     implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
-    implementation 'androidx.compose.material3:material3:1.1.0-beta02'
+    implementation 'androidx.compose.material3:material3:1.1.0-beta02' // No implementar material 2 al mismo tiempo para evitar conflictos
     implementation 'androidx.activity:activity-compose:1.7.0'
     implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1"
     implementation "androidx.navigation:navigation-compose:2.6.0-alpha09"
@@ -89,6 +131,4 @@ dependencies {
     // Dependencias para usar Coroutines, una biblioteca que permite escribir código asíncrono de forma secuencial y sin bloqueos
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
-
-
 }

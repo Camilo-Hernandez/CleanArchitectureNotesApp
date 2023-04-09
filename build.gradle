@@ -1,14 +1,50 @@
 buildscript {
     ext {
+        /**
+         * Se debe asegurar de que la versión del complemento del compilador de Kotlin
+         * coincida con la versión de Compose UI que estás usando. Por ejemplo, si usas
+         * la versión 1.4.3 de Compose UI, debes usar la versión 1.4.3
+         * del complemento del compilador de Kotlin.
+         * Sin embargo, la versión más alta del compilador de Kotlin es 1.4.1, por lo que la de
+         * Compose UI se limita a 1.4.1 también a pesar que la 1.4.3 es la más actual.
+         * La versión más actual de Compose UI está aquí:
+         * https://developer.android.com/jetpack/androidx/releases/compose-ui
+         * La tabla comparativa de las versiones están aquí:
+         * https://developer.android.com/jetpack/androidx/releases/compose-kotlin?authuser=1&hl=es-419#groovy
+         * La versión de Kotlin compatible con la versión del compilador de Compose es 1.8.0.
+         * Por esta razón, se utiliza 1.8.0 en lugar de 1.8.10, que es la más actual.
+         * Si utilizara 1.4.3 y 1.8.10, me saldrían muchos errores con las últimas versiones de las
+         * dependencias implementadas en build.gradle(:app)
+         */
         compose_version = '1.4.1'
     }
     dependencies {
         classpath "com.google.dagger:hilt-android-gradle-plugin:2.42"
     }
-}// Top-level build file where you can add configuration options common to all sub-projects/modules.
+}
+
+/**
+ * Top-level build file where you can add configuration options common to all sub-projects/modules.
+ * Esto es una parte del archivo settings.gradle que define los plugins que se pueden usar en los
+ * módulos del proyecto.
+ * Los plugins se aplican con el atributo apply false para evitar que se ejecuten en el momento
+ * de la definición. Los plugins que se definen aquí son:
+
+ - com.android.application: un plugin para crear aplicaciones de Android que genera un APK o un bundle.
+ - com.android.library: un plugin para crear bibliotecas de Android que generan un AAR.
+ - org.jetbrains.kotlin.android: un plugin para habilitar el soporte de Kotlin en los proyectos de Android.
+ */
 plugins {
     id 'com.android.application' version '7.4.2' apply false
     id 'com.android.library' version '7.4.2' apply false
+    /**
+     * Aquí se cambia la versión de Kotlin utilizada. Debe soportar la versión de Compose nombrada en ext
+     * ```gradle
+     * ext {
+     *  compose_version = '1.4.1'
+     * }
+     * ```
+      */
     id 'org.jetbrains.kotlin.android' version '1.8.0' apply false
 }
 

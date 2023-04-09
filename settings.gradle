@@ -5,6 +5,18 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
+/**
+ * A partir de Gradle 7, Android sugiere el uso de declaraciones de repositorios centralizados
+ * en settings.gradle en lugar de declaraciones a nivel de proyecto o módulo en los scripts de
+ * build.gradle. Si creaste un nuevo proyecto de Android siguiendo el asistente de creación de
+ * proyectos en la última versión de Android Studio, te encontrarás con el siguiente error cuando
+ * intentes agregar un nuevo repositorio maven en uno de tus scripts de build.gradle:
+ * Build was configured to prefer settings repositories over
+ * project repositories but repository 'XXXX' was
+ * added by build file 'build.gradle'
+ * Fuente:
+ * https://saucelabs.com/resources/blog/how-to-prefer-settings-gradle-repositories-over-build-gradle
+ */
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
