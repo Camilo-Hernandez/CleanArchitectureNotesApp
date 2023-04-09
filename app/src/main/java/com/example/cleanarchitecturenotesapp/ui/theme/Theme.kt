@@ -40,9 +40,12 @@ fun CleanArchitectureNotesAppTheme(
         darkTheme -> DarkColorScheme
         else -> LightColorScheme
     }
+
     val view = LocalView.current
     if (!view.isInEditMode) {
         SideEffect {
+            // Solución al ViewCompat.getWindowInsetsController() que está obsoleto
+
             // Obtener el objeto Window desde el contexto de la vista
             val currentWindow = (view.context as? Activity)?.window ?: throw Exception("Not in an activity - unable to get Window reference")
             currentWindow.statusBarColor = colorScheme.primary.toArgb()
