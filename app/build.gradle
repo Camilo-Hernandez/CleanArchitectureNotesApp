@@ -122,11 +122,12 @@ dependencies {
     implementation "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
     kapt "androidx.hilt:hilt-compiler:1.0.0"
 
-
     // Dependencias para usar Room, una biblioteca que provee una capa de abstracción sobre SQLite para facilitar el acceso a datos persistentes
-    implementation "androidx.room:room-runtime:2.5.1"
-    kapt "androidx.room:room-compiler:2.5.1"
-    implementation "androidx.room:room-ktx:2.5.1"
+    def room_version = "2.5.1"
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    // Kotlin Extensions and Coroutines support for Room
+    implementation "androidx.room:room-ktx:$room_version"
 
     // Dependencias para usar Coroutines, una biblioteca que permite escribir código asíncrono de forma secuencial y sin bloqueos
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4'
