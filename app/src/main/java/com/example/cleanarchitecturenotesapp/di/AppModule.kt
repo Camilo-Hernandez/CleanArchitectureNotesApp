@@ -5,10 +5,11 @@ import androidx.room.Room
 import com.example.cleanarchitecturenotesapp.feature_note.data.data_source.NoteDatabase
 import com.example.cleanarchitecturenotesapp.feature_note.data.repository.NoteRepositoryImpl
 import com.example.cleanarchitecturenotesapp.feature_note.domain.repository.NoteRepository
-import com.example.cleanarchitecturenotesapp.feature_note.domain.use_case.DeleteNote
-import com.example.cleanarchitecturenotesapp.feature_note.domain.use_case.GetNotes
-import com.example.cleanarchitecturenotesapp.feature_note.domain.use_case.InsertNote
-import com.example.cleanarchitecturenotesapp.feature_note.domain.use_case.NoteUseCases
+import com.example.cleanarchitecturenotesapp.feature_note.domain.use_case.add_edit_note_screen.GetNoteById
+import com.example.cleanarchitecturenotesapp.feature_note.domain.use_case.notes_list_screen.DeleteNote
+import com.example.cleanarchitecturenotesapp.feature_note.domain.use_case.notes_list_screen.GetNotes
+import com.example.cleanarchitecturenotesapp.feature_note.domain.use_case.notes_list_screen.InsertNote
+import com.example.cleanarchitecturenotesapp.feature_note.domain.use_case.notes_list_screen.NoteUseCases
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -44,6 +45,7 @@ object AppModule {
             getNotes = GetNotes(repository),
             deleteNote = DeleteNote(repository),
             insertNote = InsertNote(repository),
+            getNoteById = GetNoteById(repository),
         )
     }
 }

@@ -5,7 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.cleanarchitecturenotesapp.feature_note.domain.model.Note
-import com.example.cleanarchitecturenotesapp.feature_note.domain.use_case.NoteUseCases
+import com.example.cleanarchitecturenotesapp.feature_note.domain.use_case.notes_list_screen.NoteUseCases
 import com.example.cleanarchitecturenotesapp.feature_note.domain.util.NoteOrder
 import com.example.cleanarchitecturenotesapp.feature_note.domain.util.OrderType
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -108,7 +108,8 @@ class NotesViewModel @Inject constructor(
         getNotesJob?.cancel()
         getNotesJob = noteUseCases.getNotes(noteOrder) // Retorna un Flow de la lista de la DB
              .onEach {// operar con el flujo para acomodarlo al Compose State
-                 _state.value = _state.value.copy(
+                 // Es igual si el _state.value.copy() sea con o sin guión bajo _, pero la convención es usarlo sin guión bajo
+                 _state.value = state.value.copy(
                      notes = it,
                      noteOrder = noteOrder,
                  )

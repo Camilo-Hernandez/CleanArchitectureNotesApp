@@ -1,4 +1,6 @@
-package com.example.cleanarchitecturenotesapp.feature_note.domain.use_case
+package com.example.cleanarchitecturenotesapp.feature_note.domain.use_case.notes_list_screen
+
+import com.example.cleanarchitecturenotesapp.feature_note.domain.use_case.add_edit_note_screen.GetNoteById
 
 /**
  * Clase wrapper, o sea contenedora, de los casos de uso.
@@ -11,4 +13,5 @@ data class NoteUseCases (
     val getNotes: GetNotes,
     val deleteNote: DeleteNote,
     val insertNote: InsertNote,
+    val getNoteById: GetNoteById,
 )

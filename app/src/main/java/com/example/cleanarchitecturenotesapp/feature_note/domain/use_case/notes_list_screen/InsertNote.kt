@@ -1,4 +1,4 @@
-package com.example.cleanarchitecturenotesapp.feature_note.domain.use_case
+package com.example.cleanarchitecturenotesapp.feature_note.domain.use_case.notes_list_screen
 
 import com.example.cleanarchitecturenotesapp.feature_note.domain.model.InvalidNoteException
 import com.example.cleanarchitecturenotesapp.feature_note.domain.model.Note

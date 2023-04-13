@@ -18,7 +18,7 @@ pluginManagement {
  * https://saucelabs.com/resources/blog/how-to-prefer-settings-gradle-repositories-over-build-gradle
  */
 dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
     repositories {
         google()
         mavenCentral()
