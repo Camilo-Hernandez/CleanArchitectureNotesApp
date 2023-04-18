@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.Flow
  * tener fake repository es idóneo para probar los Use Cases también.
  */
 interface NoteRepository {
+
     fun getNotes(): Flow<List<Note>>
 
     suspend fun getNoteById(id: Int): Note?
@@ -18,4 +19,5 @@ interface NoteRepository {
     suspend fun insertNote(note: Note)
 
     suspend fun deleteNote(note: Note)
+
 }

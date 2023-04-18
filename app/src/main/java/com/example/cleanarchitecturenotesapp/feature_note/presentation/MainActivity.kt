@@ -23,7 +23,6 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             CleanArchitectureNotesAppTheme {
-
                 Surface(
                     color = MaterialTheme.colorScheme.background
                 ) {

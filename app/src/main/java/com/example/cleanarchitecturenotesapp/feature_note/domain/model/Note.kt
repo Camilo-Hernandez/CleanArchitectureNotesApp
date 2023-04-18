@@ -15,7 +15,7 @@ data class Note(
     companion object{
         // Para declarar una lista quemada para elegir el color que tiene una nota
         // Companion Object sirve para declarar atributos y métodos estáticos (de la clase)
-        val noteColors = listOf(RedOrange, LightGreen, Violet, BabyBlue, RedPink)
+        val noteColors = listOf(RedOrange, LightGreen, Violet, BabyBlue, RedPink, LightBlue)
     }
 }
 

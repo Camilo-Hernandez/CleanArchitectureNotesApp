@@ -30,6 +30,6 @@ fun DefaultRadioButton(
                 unselectedColor = MaterialTheme.colorScheme.onBackground
             )
         )
-        Text(text = text, fontSize = 18.sp, fontFamily = FontFamily.Cursive)
+        Text(text = text, fontSize = 24.sp, fontFamily = FontFamily.Cursive)
     }
 }

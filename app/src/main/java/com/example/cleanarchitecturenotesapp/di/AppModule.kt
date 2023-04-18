@@ -9,7 +9,7 @@ import com.example.cleanarchitecturenotesapp.feature_note.domain.use_case.add_ed
 import com.example.cleanarchitecturenotesapp.feature_note.domain.use_case.notes_list_screen.DeleteNote
 import com.example.cleanarchitecturenotesapp.feature_note.domain.use_case.notes_list_screen.GetNotes
 import com.example.cleanarchitecturenotesapp.feature_note.domain.use_case.notes_list_screen.InsertNote
-import com.example.cleanarchitecturenotesapp.feature_note.domain.use_case.notes_list_screen.NoteUseCases
+import com.example.cleanarchitecturenotesapp.feature_note.domain.use_case.NoteUseCases
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

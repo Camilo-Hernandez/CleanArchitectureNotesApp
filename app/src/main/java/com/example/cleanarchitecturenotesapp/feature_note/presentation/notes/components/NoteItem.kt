@@ -1,7 +1,12 @@
 package com.example.cleanarchitecturenotesapp.feature_note.presentation.notes.components
 
 import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material3.Icon
@@ -78,7 +83,7 @@ fun NoteItem(
             Text(
                 text = note.title,
                 style = MaterialTheme.typography.headlineSmall,
-                color = MaterialTheme.colorScheme.onSurface,
+                color = Color.DarkGray,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis, // Gets cut off with an elipsis ...
             )
@@ -86,7 +91,7 @@ fun NoteItem(
             Text(
                 text = note.title,
                 style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurface,
+                color = MaterialTheme.colorScheme.onPrimary,
                 maxLines = 10,
                 overflow = TextOverflow.Ellipsis, // Gets cut off with an elipsis ...
             )

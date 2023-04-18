@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.cleanarchitecturenotesapp.feature_note.domain.model.InvalidNoteException
 import com.example.cleanarchitecturenotesapp.feature_note.domain.model.Note
-import com.example.cleanarchitecturenotesapp.feature_note.domain.use_case.notes_list_screen.NoteUseCases
+import com.example.cleanarchitecturenotesapp.feature_note.domain.use_case.NoteUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
@@ -59,7 +59,7 @@ class AddEditNoteViewModel @Inject constructor(
         object SaveNote : UiEvent()
     }
 
-    var currentNoteId : Int? = null
+    private var currentNoteId : Int? = null
 
     init {
         // Lo que se ejecuta primero cuando se accede a la pantalla

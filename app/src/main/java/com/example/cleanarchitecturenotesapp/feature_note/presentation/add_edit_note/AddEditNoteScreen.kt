@@ -42,7 +42,32 @@ fun AddEditNoteScreen(
             Color(if (noteColor != -1) noteColor else viewModel.noteColor.value)
         )
     }
-    // TODO: Entender esto para el navigation
+
+    /**
+     * LaunchedEffect es una función componible que tiene dos parámetros: key1 y block. key1 es de
+     * tipo Any, lo que significa que puede ser cualquier cosa, como un número, una cadena o un
+     * booleano. Cada vez que el valor que se pasa en este parámetro cambia, se activa la función
+     * block. block es una función de suspensión de Kotlin que tiene su propio alcance de corrutina.
+
+     * Una función de suspensión es una función que puede pausarse y reanudarse más tarde, sin
+     * bloquear el hilo en el que se ejecuta. Una corrutina es una forma de ejecutar funciones de
+     * suspensión de manera concurrente, es decir, al mismo tiempo que otras tareas. El alcance de
+     * una corrutina es el contexto en el que se crea y se cancela.
+
+     * Una analogía para entender esto es pensar en LaunchedEffect como un lanzador de cohetes. El
+     * parámetro key1 es el botón que activa el lanzamiento. Cada vez que presionas el botón con un
+     * valor diferente, se lanza un nuevo cohete. El parámetro block es el código que se ejecuta
+     * dentro del cohete. El cohete puede pausar su vuelo y reanudarlo más tarde, sin interferir
+     * con otros cohetes o con el lanzador. El alcance del cohete es el espacio en el que vuela y
+     * se destruye.
+     *
+     * Este código usa un flujo para recibir eventos desde el viewModel. Un flujo es una forma de
+     * emitir y recibir valores de forma asíncrona y secuencial. Es como un río que fluye con datos.
+     *
+     * El método collectLatest recibe los últimos valores emitidos por el flujo y los procesa con
+     * una función lambda. La función lambda usa una expresión when para verificar el tipo de evento
+     * y actuar en consecuencia.
+     */
     LaunchedEffect(key1 = true){
         viewModel.eventFlow.collectLatest {
             when (it){
