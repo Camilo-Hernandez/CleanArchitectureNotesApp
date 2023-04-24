@@ -16,10 +16,12 @@ buildscript {
          * Si utilizara 1.4.3 y 1.8.10, me saldrían muchos errores con las últimas versiones de las
          * dependencias implementadas en build.gradle(:app)
          */
+
         compose_version = '1.4.1'
+        hilt_version = '2.45'
     }
     dependencies {
-        classpath 'com.google.dagger:hilt-android-gradle-plugin:2.45'
+        classpath "com.google.dagger:hilt-android-gradle-plugin:$hilt_version"
     }
 }
 
@@ -35,8 +37,9 @@ buildscript {
  - org.jetbrains.kotlin.android: un plugin para habilitar el soporte de Kotlin en los proyectos de Android.
  */
 plugins {
-    id 'com.android.application' version '7.4.2' apply false
-    id 'com.android.library' version '7.4.2' apply false
+    id 'com.android.application' version '8.0.0' apply false
+    id 'com.android.library' version '8.0.0' apply false
+    //id 'com.google.dagger.hilt.android' version "$hilt_version" apply false
     /**
      * Aquí se cambia la versión de Kotlin utilizada. Debe soportar la versión de Compose nombrada en ext
      * ```gradle
